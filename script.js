@@ -79,12 +79,13 @@ mainContainer.addEventListener("click", function (event) {
     const jobRole = parentNode.querySelector(".job-role").innerText;
     const jobCatagory = parentNode.querySelector(".job-catagory").innerText;
     const status = parentNode.querySelector(".job-status").innerText;
-    const jobDescription =
-      parentNode.querySelector(".job-description").innerText;
-    // console.log(jobTitle, jobRole, jobCatagory,status,jobDescription);
-    // parentNode.querySelector(".job-status").innerText = "INTERVIEW";
-    parentNode.querySelector(".job-status").innerHTML =
-      `<p class="text-green-500 ">INTERVIEW</p>`;
+    const jobDescription = parentNode.querySelector(".job-description").innerText;
+      
+      parentNode
+        .querySelector(".job-status")
+        .classList.remove("hidden", "bg-red-100", "text-red-600");
+      parentNode.querySelector(".job-status").classList.add("bg-green-100","text-green-600");
+      parentNode.querySelector(".job-status").innerText = "INTERVIEW";
     const cardInfo = {
       jobTitle,
       jobRole,
@@ -118,11 +119,14 @@ mainContainer.addEventListener("click", function (event) {
     const status = parentNode.querySelector(".job-status").innerText;
     const jobDescription =
       parentNode.querySelector(".job-description").innerText;
-    // console.log(jobTitle, jobRole, jobCatagory,status,jobDescription);
-    // parentNode.querySelector(".job-status").innerText = "REJECTED";
 
-    parentNode.querySelector(".job-status").innerHTML =
-      `<p class="text-red-500 ">REJECTED</p>`;
+    parentNode
+      .querySelector(".job-status")
+      .classList.remove("hidden", "bg-green-100", "text-green-600");
+    parentNode
+      .querySelector(".job-status")
+      .classList.add("bg-red-100", "text-red-600");
+    parentNode.querySelector(".job-status").innerText = "REJECTED";
 
     const cardInfo = {
       jobTitle,
@@ -150,6 +154,8 @@ mainContainer.addEventListener("click", function (event) {
     }
     calculateCount();
     // renderRejectedList();
+
+    //   event.target.classList.contains("reject-button")
   } else if (event.target.classList.contains("delete")) {
     const parentNode = event.target.parentNode.parentNode;
     const jobTitle = parentNode.querySelector(".job-title").innerText;
