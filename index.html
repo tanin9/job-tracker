@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-them="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet"
+            type="text/css" />
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+            rel="stylesheet">
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+            rel="stylesheet">
+
+        <title>Job Application Tracker</title>
+        <style>
+            
+            *{ font-family: "Geist", sans-serif;
+              }
+
+        </style>
+    </head>
+    <body class="bg-[#eaf0f5] pb-[200px]">
+        <main class="container mx-auto">
+
+            <section
+                class="heading-section sticky top-0 bg-[#eaf0f5]  z-10 pb-6">
+                <h2 class="text-4xl font-bold py-[30px] text-[#002C5C]">Job
+                    Application
+                    Tracker</h2>
+                <div class="grid grid-cols-3 gap-6 text-[#323B49]">
+                    <div
+                        class="p-5 bg-[#ffffff] rounded-2xl shadow-xl space-y-2 ">
+                        <p class="text-[14px] font-medium">Total</p>
+                        <p class="text-2xl font-bold text-[#002C5C]"><span
+                                id="total">0</span></p>
+                    </div>
+                    <div
+                        class="p-5  bg-[#ffffff] rounded-2xl shadow-xl space-y-2  ">
+                        <p class="text-[14px] font-medium">Interview</p>
+                        <p class="text-2xl font-bold text-[#10b981]"><span
+                                id="interview">0</span></p>
+                    </div>
+                    <div
+                        class="p-5  bg-[#ffffff] rounded-2xl shadow-xl space-y-2 ">
+                        <p class="text-[14px] font-medium">Rejected</p>
+                        <p class="text-2xl font-bold text-[#ef4444]"><span
+                                id="rejected">0</span></p>
+                    </div>
+                </div>
+
+                <hr class="text-[#E6E7E9] my-8">
+
+                <div class="flex justify-between items-center ">
+                    <h2
+                        class="text-3xl font-bold mb-[30px] text-[#002C5C] ">Available
+                        Jobs</h2>
+                    <p class="text-[#323B49]"><span
+                                id="total1">0</span> jobs</p></div>
+
+                <div class="flex flex-row gap-4">
+                    <button onclick="toggole('all-filter-button')"
+                        id="all-filter-button"
+                        class="btn bg-[#3B82F6] text-amber-50 w-25">All</button>
+                    <button onclick="toggole('interview-filter-button')"
+                        id="interview-filter-button"
+                        class="btn text-[#64748B] w-25">Interview</button>
+                    <button onclick="toggole('reject-filter-button')"
+                        id="reject-filter-button"
+                        class="btn text-[#64748B] w-25">Rejected</button>
+                </div>
+            </section>
+
+            <section id="filtered-section" class="hidden">
+
+
+            </section>
+
+            <section id="job-cards">
+                <div class="card flex flex-row justify-between bg-[#ffffff] my-8 p-8 rounded-lg">
+                    <div class="   space-y-5 text-[#64748B] ">
+                        <div>
+                            <p class="job-title text-xl font-bold text-[#002C5C]">Mobile First Corp</p>
+                            <p class="job-role">React Native Developer</p>
+                        </div>
+                        <div>
+                            <p class="job-catagory text-[14px]">Remote • Full-time • $130,000 - $175,000</p>
+                        </div>
+                        <p class="job-status p-3 text-[#002C5C] font-semibold rounded-sm  md:w-4/20 bg-[#eef4ff] flex justify-center">NOT APPLIED</p>
+                        <p class="job-description">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    
+                        <div>
+                            <button class=" interview-button btn text-[#10b981] border-[#10b981]  mr-2">INTERVIEW</button>
+                            <button class="btn text-[#ef4444] border-[#ef4444] reject-button">REJECTED</button>
+                        </div>
+                    </div>
+                    <div><button class="btn btn-circle delete"><img src="images/deleteicon.png" alt=""></button></div>
+                </div>
+
+
+                <div class="card flex flex-row justify-between bg-[#ffffff] my-8 p-8 rounded-lg">
+                    <div class="   space-y-5 text-[#64748B] ">
+                        <div>
+                            <p class="job-title text-xl font-bold text-[#002C5C]">WebFlow Agency</p>
+                            <p class="job-role">Web Designer & Developer</p>
+                        </div>
+                        <div>
+                            <p class="job-catagory text-[14px]">Los Angeles, CA  •  Part-time  •  $80,000 - $120,000</p>
+                        </div>
+                        <p class="job-status p-3 text-[#002C5C] font-semibold rounded-sm  md:w-4/20 bg-[#eef4ff] flex justify-center">NOT APPLIED</p>
+                        <p class="job-description">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                    
+                        <div>
+                            <button class=" interview-button btn text-[#10b981] border-[#10b981]  mr-2">INTERVIEW</button>
+                            <button class="btn text-[#ef4444] border-[#ef4444] reject-button">REJECTED</button>
+                        </div>
+                    </div>
+                    <div><button class="btn btn-circle delete"><img src="images/deleteicon.png" alt=""></button>
+                    </div>
+                </div>
+
+
+                <div class="card flex flex-row justify-between bg-[#ffffff] my-8 p-8 rounded-lg">
+                    <div class="   space-y-5 text-[#64748B] ">
+                        <div>
+                            <p class="job-title text-xl font-bold text-[#002C5C]">DataViz Solutions</p>
+                            <p class="job-role">Data Visualization Specialist</p>
+                        </div>
+                        <div>
+                            <p class="job-catagory text-[14px]">Boston, MA • Full-time • $125,000 - $165,000</p>
+                        </div>
+                        <p class="job-status p-3 text-[#002C5C] font-semibold rounded-sm  md:w-4/20 bg-[#eef4ff] flex justify-center">NOT APPLIED</p>
+                        <p class="job-description">Transform complex data into compelling visualizations.
+                        Required skills: D3.js, React, and strong analytical thinking.</p>
+                    
+                        <div>
+                            <button class=" interview-button btn text-[#10b981] border-[#10b981]  mr-2">INTERVIEW</button>
+                            <button class="btn text-[#ef4444] border-[#ef4444] reject-button">REJECTED</button>
+                        </div>
+                    </div>
+                    <div><button class="btn btn-circle delete"><img src="images/deleteicon.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="card flex flex-row justify-between bg-[#ffffff] my-8 p-8 rounded-lg">
+                    <div class="   space-y-5 text-[#64748B] ">
+                        <div>
+                            <p class="job-title text-xl font-bold text-[#002C5C]">CloudFirst Inc</p>
+                            <p class="job-role">Backend Developer</p>
+                        </div>
+                        <div>
+                            <p class="job-catagory text-[14px]">Seattle, WA • Full-time • $140,000 - $190,000</p>
+                        </div>
+                        <p class="job-status p-3 text-[#002C5C] font-semibold rounded-sm  md:w-4/20 bg-[#eef4ff] flex justify-center">NOT APPLIED</p>
+                        <p class="job-description">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
+                    
+                        <div>
+                            <button class=" interview-button btn text-[#10b981] border-[#10b981]  mr-2">INTERVIEW</button>
+                            <button class="btn text-[#ef4444] border-[#ef4444] reject-button">REJECTED</button>
+                        </div>
+                    </div>
+                    <div><button class="btn btn-circle delete"><img src="images/deleteicon.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="card flex flex-row justify-between bg-[#ffffff] my-8 p-8 rounded-lg">
+                    <div class="   space-y-5 text-[#64748B] ">
+                        <div>
+                            <p class="job-title text-xl font-bold text-[#002C5C]">Innovation Labs</p>
+                            <p class="job-role">UI/UX Engineer</p>
+                        </div>
+                        <div>
+                            <p class="job-catagory text-[14px]">Austin, TX • Full-time • $110,000 - $150,000</p>
+                        </div>
+                        <p class="job-status p-3 text-[#002C5C] font-semibold rounded-sm  md:w-4/20 bg-[#eef4ff] flex justify-center">NOT APPLIED</p>
+                        <p class="job-description">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
+                    
+                        <div>
+                            <button class=" interview-button btn text-[#10b981] border-[#10b981]  mr-2">INTERVIEW</button>
+                            <button class="btn text-[#ef4444] border-[#ef4444] reject-button">REJECTED</button>
+                        </div>
+                    </div>
+                    <div><button class="btn btn-circle delete"><img src="images/deleteicon.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="card flex flex-row justify-between bg-[#ffffff] my-8 p-8 rounded-lg">
+                    <div class="   space-y-5 text-[#64748B] ">
+                        <div>
+                            <p class="job-title text-xl font-bold text-[#002C5C]">MegaCorp Solutions</p>
+                            <p class="job-role">JavaScript Developer</p>
+                        </div>
+                        <div>
+                            <p class="job-catagory text-[14px]">New York, NY • Full-time • $130,000 - $170,00</p>
+                        </div>
+                        <p class="job-status p-3 text-[#002C5C] font-semibold rounded-sm  md:w-4/20 bg-[#eef4ff] flex justify-center">NOT APPLIED</p>
+                        <p class="job-description">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
+                    
+                        <div>
+                            <button class=" interview-button btn text-[#10b981] border-[#10b981]  mr-2">INTERVIEW</button>
+                            <button class="btn text-[#ef4444] border-[#ef4444] reject-button">REJECTED</button>
+                        </div>
+                    </div>
+                    <div><button class="btn btn-circle delete"><img  src="images/deleteicon.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="card flex flex-row justify-between bg-[#ffffff] my-8 p-8 rounded-lg">
+                    <div class="   space-y-5 text-[#64748B] ">
+                        <div>
+                            <p class="job-title text-xl font-bold text-[#002C5C]">StartupXYZ</p>
+                            <p class="job-role">Full Stack Engineer</p>
+                        </div>
+                        <div>
+                            <p class="job-catagory text-[14px]">Remote • Full-time • $120,000 - $160,000</p>
+                        </div>
+                        <p class="job-status p-3 text-[#002C5C] font-semibold rounded-sm  md:w-4/20 bg-[#eef4ff] flex justify-center">NOT APPLIED</p>
+                        <p class="job-description">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
+                    
+                        <div>
+                            <button class=" interview-button btn text-[#10b981] border-[#10b981]  mr-2">INTERVIEW</button>
+                            <button class="btn text-[#ef4444] border-[#ef4444] reject-button">REJECTED</button>
+                        </div>
+                    </div>
+                    <div><button class="btn btn-circle delete"><img src="images/deleteicon.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="card flex flex-row justify-between bg-[#ffffff] my-8 p-8 rounded-lg">
+                    <div class="   space-y-5 text-[#64748B] ">
+                        <div>
+                            <p class="job-title text-xl font-bold text-[#002C5C]">TechCorp Industries</p>
+                            <p class="job-role">Senior Frontend Developer</p>
+                        </div>
+                        <div>
+                            <p class="job-catagory text-[14px]">San Francisco, CA • Full-time • $130,000 - $175,000</p>
+                        </div>
+                        <p class="job-status p-3 text-[#002C5C] font-semibold rounded-sm  md:w-4/20 bg-[#eef4ff] flex justify-center">NOT APPLIED</p>
+                        <p class="job-description">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
+                    
+                        <div>
+                            <button class=" interview-button btn text-[#10b981] border-[#10b981]  mr-2">INTERVIEW</button>
+                            <button class="btn text-[#ef4444] border-[#ef4444] reject-button">REJECTED</button>
+                        </div>
+                    </div>
+                    <div><button class="btn btn-circle delete"><img src="images/deleteicon.png" alt=""></button>
+                    </div>
+                </div>
+
+
+            </section>
+
+
+
+            <section
+                class="No-jobs-available p-40 bg-[#ffffff] rounded-lg flex flex-col justify-center items-center space-y-5 mt-5 hidden">
+                <div><img src="jobs.png" alt></div>
+                <div class="flex flex-col justify-center items-center">
+                    <h2 class="text-2xl font-semibold text-[#002C5C]">No jobs
+                        available</h2>
+                    <p class="text-[#64748B]">Check back soon for new job
+                        opportunities</p>
+                </div>
+
+            </section>
+        </main>
+        <script src="job.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
