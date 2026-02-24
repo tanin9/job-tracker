@@ -4,7 +4,7 @@ Answers to Questions
 The getElementById()
  --it's returns an Element object
  --select by id which matches the specified string. 
- --Since element Id's are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+ --Since element Id's are required to be unique id specified, they're a useful way to get access to a specific element quickly.
 Syntax : getElementById(id)
 
 The querySelector() 
@@ -32,7 +32,7 @@ Syntex : querySelectorAll(selectors)
       /*----create element syntex----*/
       const newElment = document.createElement("p");
 
-      newDiv.textContent = "Hello world";
+      newElment.textContent = "Hello world";
       const parentElement = document.getElementById("parent-element-id");
 
       /*----Insert new element syntex----*/
